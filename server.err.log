@@ -1,0 +1,51 @@
+Error: D:\new project\files\index.ejs:1
+ >> 1| <%- include('./views/partials/head') %>
+    2| <body>
+    3|   <%- include('./views/partials/header') %>
+    4| 
+
+Could not find the include file "./views/partials/head"
+    at getIncludePath (D:\new project\files\node_modules\ejs\lib\ejs.js:185:13)
+    at includeFile (D:\new project\files\node_modules\ejs\lib\ejs.js:311:19)
+    at include (D:\new project\files\node_modules\ejs\lib\ejs.js:701:16)
+    at eval (eval at compile (D:\new project\files\node_modules\ejs\lib\ejs.js:673:12), <anonymous>:10:17)
+    at index (D:\new project\files\node_modules\ejs\lib\ejs.js:703:17)
+    at tryHandleCache (D:\new project\files\node_modules\ejs\lib\ejs.js:274:36)
+    at exports.renderFile [as engine] (D:\new project\files\node_modules\ejs\lib\ejs.js:491:10)
+    at View.render (D:\new project\files\node_modules\express\lib\view.js:135:8)
+    at tryRender (D:\new project\files\node_modules\express\lib\application.js:657:10)
+    at app.render (D:\new project\files\node_modules\express\lib\application.js:609:3)
+Error: D:\new project\files\index.ejs:1
+ >> 1| <%- include('./views/partials/head') %>
+    2| <body>
+    3|   <%- include('./views/partials/header') %>
+    4| 
+
+Could not find the include file "./views/partials/head"
+    at getIncludePath (D:\new project\files\node_modules\ejs\lib\ejs.js:185:13)
+    at includeFile (D:\new project\files\node_modules\ejs\lib\ejs.js:311:19)
+    at include (D:\new project\files\node_modules\ejs\lib\ejs.js:701:16)
+    at eval (eval at compile (D:\new project\files\node_modules\ejs\lib\ejs.js:673:12), <anonymous>:10:17)
+    at index (D:\new project\files\node_modules\ejs\lib\ejs.js:703:17)
+    at tryHandleCache (D:\new project\files\node_modules\ejs\lib\ejs.js:274:36)
+    at exports.renderFile [as engine] (D:\new project\files\node_modules\ejs\lib\ejs.js:491:10)
+    at View.render (D:\new project\files\node_modules\express\lib\view.js:135:8)
+    at tryRender (D:\new project\files\node_modules\express\lib\application.js:657:10)
+    at app.render (D:\new project\files\node_modules\express\lib\application.js:609:3)
+Error: D:\new project\files\index.ejs:1
+ >> 1| <%- include('./views/partials/head') %>
+    2| <body>
+    3|   <%- include('./views/partials/header') %>
+    4| 
+
+Could not find the include file "./views/partials/head"
+    at getIncludePath (D:\new project\files\node_modules\ejs\lib\ejs.js:185:13)
+    at includeFile (D:\new project\files\node_modules\ejs\lib\ejs.js:311:19)
+    at include (D:\new project\files\node_modules\ejs\lib\ejs.js:701:16)
+    at eval (eval at compile (D:\new project\files\node_modules\ejs\lib\ejs.js:673:12), <anonymous>:10:17)
+    at index (D:\new project\files\node_modules\ejs\lib\ejs.js:703:17)
+    at tryHandleCache (D:\new project\files\node_modules\ejs\lib\ejs.js:274:36)
+    at exports.renderFile [as engine] (D:\new project\files\node_modules\ejs\lib\ejs.js:491:10)
+    at View.render (D:\new project\files\node_modules\express\lib\view.js:135:8)
+    at tryRender (D:\new project\files\node_modules\express\lib\application.js:657:10)
+    at app.render (D:\new project\files\node_modules\express\lib\application.js:609:3)

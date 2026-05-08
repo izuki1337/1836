@@ -1,0 +1,38 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+
+  <main style="padding-top: 120px; min-height: 80vh;">
+    <section class="section" id="work">
+      <div class="section-heading cinematic-reveal">
+        <div class="eyebrow">Moments</div>
+        <h2>Fragments of time, captured through a lens and preserved in silence.</h2>
+      </div>
+
+      <div class="projects-grid">
+        <% projects.forEach((project, index) => { %>
+          <article class="project-card cinematic-reveal delay-<%= (index % 3) + 1 %>">
+            <div class="project-meta">
+              <span class="project-index">0<%= index + 1 %></span>
+              <span class="project-category"><%= project.category %></span>
+            </div>
+            <h3><%= project.title %></h3>
+            <p><%= project.summary %></p>
+            <div class="project-impact"><%= project.impact %></div>
+            <div class="chip-row">
+              <% project.stack.forEach((item) => { %>
+                <span class="chip"><%= item %></span>
+              <% }) %>
+            </div>
+            <a href="<%= project.link %>" class="project-link"><%= project.linkText %></a>
+          </article>
+        <% }) %>
+      </div>
+      
+      <div class="hero-actions cinematic-reveal delay-3" style="margin-top: 4rem;">
+        <a href="/journey" class="button button-secondary">Follow my journey &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('./partials/footer') %>

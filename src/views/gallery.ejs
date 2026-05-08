@@ -1,0 +1,77 @@
+<%- include('./partials/head') %>
+<!-- Cài đặt CSS Syntax Highlighting (Prism.js - Theme Tomorrow Night) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<body>
+  <%- include('./partials/header') %>
+
+  <main style="padding-top: 120px; min-height: 80vh;">
+    <section class="section" id="gallery-view">
+      <div class="section-heading cinematic-reveal">
+        <div class="eyebrow">
+          <a href="/creations" style="color: var(--text-muted); border-bottom: 1px solid var(--border-subtle); padding-bottom: 2px;">Moments</a> &nbsp;/&nbsp; <%= album.title %>
+        </div>
+        <h2><%= album.description %></h2>
+      </div>
+
+      <div class="story-container">
+        <% if (album.stories && album.stories.length > 0) { %>
+          <% album.stories.forEach((story, index) => { %>
+            <div class="photo-story <%= story.reverse ? 'reversed' : '' %> cinematic-reveal delay-<%= (index % 3) + 1 %>">
+              <div class="photo-card">
+                <img src="<%= story.url %>" alt="<%= story.caption %>" loading="lazy" />
+              </div>
+              <div class="photo-story-text">
+                <h3><%= story.caption %></h3>
+                <p><%= story.description %></p>
+              </div>
+            </div>
+          <% }) %>
+        <% } else if (album.snippets && album.snippets.length > 0) { %>
+          <% album.snippets.forEach((snippet, index) => { %>
+            <div class="photo-story <%= index % 2 !== 0 ? 'reversed' : '' %> cinematic-reveal delay-<%= (index % 3) + 1 %>">
+              <div class="photo-card" style="border: none; background: transparent; box-shadow: none;">
+                <div class="editorial-code" id="snippet-<%= snippet.id %>">
+                  <div class="code-header"><%= snippet.filename %></div>
+                  <pre><code class="language-<%= snippet.language %>"><%= snippet.code %></code></pre>
+                </div>
+              </div>
+              <div class="photo-story-text">
+                <h3><%= snippet.filename.split('/').pop() %></h3>
+                <p><%= snippet.description %></p>
+                <div class="code-actions">
+                  <button class="btn-view-code" data-target="snippet-<%= snippet.id %>">View Source &nearr;</button>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <div class="cinematic-reveal delay-1" style="text-align: center; padding: 6rem 0; color: var(--text-muted); font-style: italic;">
+            Khung hình đang được tráng phim... (Film is developing)
+          </div>
+        <% } %>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" id="lightbox-close">Close [X]</div>
+    <img src="" alt="Expanded View" id="lightbox-img" />
+  </div>
+
+  <!-- Code Modal Overlay -->
+  <div class="code-modal" id="code-modal">
+    <div class="lightbox-close" id="code-modal-close" style="cursor: pointer; z-index: 10;">Close [X]</div>
+    <div class="code-modal-container">
+      <div class="code-header" id="modal-code-header" style="color: var(--text-muted); font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;"></div>
+      <div class="modal-code-card editorial-code" style="height: auto; max-height: 75vh;">
+        <pre><code id="code-modal-content"></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cài đặt JS Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+
+  <%- include('./partials/footer') %>

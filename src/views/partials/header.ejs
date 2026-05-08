@@ -1,0 +1,18 @@
+<header class="site-header" id="top">
+  <div class="header-shell">
+    <a href="/" class="brand-mark">
+      <span><%= profile.name %></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav">
+      <% navItems.forEach((item) => { %>
+        <a href="<%= item.href %>" class="nav-link <%= currentPath === item.href ? 'active' : '' %>"><%= item.label %></a>
+      <% }) %>
+    </nav>
+  </div>
+</header>

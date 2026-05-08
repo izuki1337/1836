@@ -1,0 +1,33 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+
+  <main style="padding-top: 120px; min-height: 80vh;">
+    <section class="section" id="experience">
+      <div class="section-heading cinematic-reveal">
+        <div class="eyebrow">The Journey</div>
+        <h2>Chapters of my life, lessons learned, and paths taken.</h2>
+      </div>
+
+      <div class="timeline">
+        <% timeline.forEach((item, index) => { %>
+          <article class="timeline-item cinematic-reveal delay-<%= (index % 3) + 1 %>">
+            <div class="timeline-meta">
+              <div class="timeline-period"><%= item.period %></div>
+              <div class="timeline-role"><%= item.title %> &mdash; <%= item.company %></div>
+            </div>
+            <div class="timeline-content">
+              <p><%= item.summary %></p>
+              <ul class="timeline-achievements">
+                <% item.achievements.forEach((achievement) => { %>
+                  <li><%= achievement %></li>
+                <% }) %>
+              </ul>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    </section>
+  </main>
+
+  <%- include('./partials/footer') %>

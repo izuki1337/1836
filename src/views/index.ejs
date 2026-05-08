@@ -1,0 +1,124 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-layout">
+        <div class="hero-minimal">
+          <h1 class="hero-minimal-title cinematic-reveal"><%= profile.name %><span>.</span></h1>
+          <div class="hero-divider"></div>
+          <p class="hero-subtitle cinematic-reveal delay-1">
+            <em>Capture</em> the nature.<br />
+            <em>Design</em> in silence.
+          </p>
+        </div>
+        
+        <div class="hero-visual cinematic-reveal delay-2">
+          <div class="hero-image-wrapper">
+            <!-- Sử dụng ảnh chú mèo mang ý nghĩa của sự tò mò, khám phá -->
+            <img src="/Curious Cat in Greenery.png" 
+                 alt="Curious Cat in Greenery" 
+                 class="hero-image" />
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-meta cinematic-reveal delay-3">
+        <div class="meta-col">
+          <div class="meta-header">
+            <span class="meta-index">01</span>
+            <div class="card-label">Who I am</div>
+          </div>
+          <p class="profile-role"><%= profile.role %></p>
+          <p class="profile-location"><%= profile.location %></p>
+        </div>
+
+        <div class="meta-col">
+          <div class="meta-header">
+            <span class="meta-index">02</span>
+            <div class="card-label">Passions</div>
+          </div>
+          <div class="tag-row">
+            <span>Photography</span>
+            <span>Writing</span>
+            <span>Minimalism</span>
+          </div>
+        </div>
+
+        <div class="meta-col">
+          <div class="meta-header">
+            <span class="meta-index">03</span>
+            <div class="card-label">Philosophy</div>
+          </div>
+          <blockquote class="hero-quote">"<%= profile.philosophy %>"</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-heading reveal">
+        <div class="eyebrow">About</div>
+        <h2>A digital space should feel lived-in, like a cozy quiet room.</h2>
+      </div>
+
+      <div class="about-layout">
+        <article class="about-story reveal">
+          <p><%= profile.about %></p>
+        </article>
+
+        <div class="about-notes reveal">
+          <div class="note-card">
+            <span class="note-kicker">Current State</span>
+            <strong>Learning to slow down, drinking good tea, and mastering Rust.</strong>
+          </div>
+          <div class="note-card">
+            <span class="note-kicker">Guiding Principle</span>
+            <strong>If it's not a clear yes, then it's a no. Keep things simple.</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="focus-grid">
+        <% focusAreas.forEach((area) => { %>
+          <article class="focus-card reveal">
+            <div class="focus-top">
+              <span class="focus-accent"><%= area.accent %></span>
+              <h3><%= area.name %></h3>
+            </div>
+            <p><%= area.summary %></p>
+            <ul>
+              <% area.bullets.forEach((bullet) => { %>
+                <li><%= bullet %></li>
+              <% }) %>
+            </ul>
+          </article>
+        <% }) %>
+      </div>
+    </section>
+
+    <section class="section" id="toolkit">
+      <div class="toolkit-shell">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Essentials</div>
+          <h2>Simple tools I carry to observe the world and shape my digital garden.</h2>
+        </div>
+
+        <div class="toolkit-grid">
+          <% toolkitGroups.forEach((group) => { %>
+            <article class="toolkit-card reveal">
+              <h3><%= group.label %></h3>
+              <div class="chip-row">
+                <% group.tools.forEach((tool) => { %>
+                  <span class="chip chip-light"><%= tool %></span>
+                <% }) %>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('./partials/footer') %>
